@@ -15,7 +15,8 @@ TERMUX_PKG_REPLACES="bash-dev"
 TERMUX_PKG_ESSENTIAL=true
 TERMUX_PKG_BUILD_IN_SRC=true
 
-TERMUX_PKG_EXTRA_CONFIGURE_ARGS="--enable-multibyte --without-bash-malloc --with-installed-readline --enable-progcomp"
+TERMUX_PKG_EXTRA_CONFIGURE_ARGS="--enable-multibyte --without-bash-malloc --with-installed-readline"
+TERMUX_PKG_EXTRA_CONFIGURE_ARGS+=" --disable-shared-builtin --enable-static-builtin"
 TERMUX_PKG_EXTRA_CONFIGURE_ARGS+=" bash_cv_job_control_missing=present"
 TERMUX_PKG_EXTRA_CONFIGURE_ARGS+=" bash_cv_sys_siglist=yes"
 TERMUX_PKG_EXTRA_CONFIGURE_ARGS+=" bash_cv_func_sigsetjmp=present"

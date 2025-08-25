@@ -28,10 +28,10 @@ termux_step_make() {
 
 	cd objects
 	ar rcu ../libandroid-support.a *.o
-	$CC $LDFLAGS -shared -o ../libandroid-support.so *.o
+	# $CC $LDFLAGS -shared -o ../libandroid-support.so *.o
 }
 
 termux_step_make_install() {
 	install -Dm600 libandroid-support.a $TERMUX_PREFIX/lib/libandroid-support.a
-	install -Dm600 libandroid-support.so $TERMUX_PREFIX/lib/libandroid-support.so
+	# install -Dm600 libandroid-support.so $TERMUX_PREFIX/lib/libandroid-support.so
 }

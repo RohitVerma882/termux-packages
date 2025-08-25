@@ -57,7 +57,6 @@ am_cv_langinfo_codeset=no
 --with-normal
 --with-pkg-config-libdir=$TERMUX_PREFIX/lib/pkgconfig
 --with-static
---with-shared
 --with-termpath=$TERMUX_PREFIX/etc/termcap:$TERMUX_PREFIX/share/misc/termcap
 "
 

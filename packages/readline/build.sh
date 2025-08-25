@@ -10,7 +10,7 @@ _PATCH_VERSION=1
 TERMUX_PKG_VERSION=$_MAIN_VERSION.$_PATCH_VERSION
 TERMUX_PKG_SRCURL=https://mirrors.kernel.org/gnu/readline/readline-${_MAIN_VERSION}.tar.gz
 TERMUX_PKG_SHA256=fe5383204467828cd495ee8d1d3c037a7eba1389c22bc6a041f627976f9061cc
-TERMUX_PKG_EXTRA_CONFIGURE_ARGS="--with-curses --enable-multibyte bash_cv_wcwidth_broken=no"
+TERMUX_PKG_EXTRA_CONFIGURE_ARGS="--disable-shared --with-curses --enable-multibyte bash_cv_wcwidth_broken=no"
 TERMUX_PKG_EXTRA_MAKE_ARGS="SHLIB_LIBS=-lncursesw"
 TERMUX_PKG_CONFFILES="etc/inputrc"
 
