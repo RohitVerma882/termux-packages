@@ -30,7 +30,7 @@ termux_step_pre_configure() {
 		patch -p0 -i "$PATCHFILE"
 	done
 
-	CFLAGS+=" -fexceptions"
+	CFLAGS+=" -fexceptions -fPIC"
 }
 
 termux_step_post_make_install() {
