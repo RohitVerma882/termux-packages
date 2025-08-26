@@ -10,7 +10,11 @@ TERMUX_PKG_AUTO_UPDATE=false
 TERMUX_PKG_DEPENDS="libgmp"
 TERMUX_PKG_BREAKS="libmpfr-dev"
 TERMUX_PKG_REPLACES="libmpfr-dev"
-TERMUX_PKG_EXTRA_CONFIGURE_ARGS="ac_cv_header_locale_h=no"
+TERMUX_PKG_EXTRA_CONFIGURE_ARGS="--disable-shared ac_cv_header_locale_h=no"
+
+termux_step_pre_configure() {
+	CFLAGS+=" -fPIC"
+}
 
 termux_step_post_get_source() {
 	if ! [[ $TERMUX_PKG_VERSION = *-p* ]]; then
