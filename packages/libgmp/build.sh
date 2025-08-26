@@ -12,6 +12,8 @@ TERMUX_PKG_REPLACES="libgmp-dev"
 TERMUX_PKG_EXTRA_CONFIGURE_ARGS="--enable-cxx --disable-shared"
 
 termux_step_pre_configure() {
+	CFLAGS+=" -fPIC"
+
 	# the cxx tests fail because it won't link properly without this
-	CXXFLAGS+=" -L$TERMUX_PREFIX/lib -Wl,-rpath=$TERMUX_PREFIX/lib"
+	CXXFLAGS+=" -fPIC -L$TERMUX_PREFIX/lib -Wl,-rpath=$TERMUX_PREFIX/lib"
 }
