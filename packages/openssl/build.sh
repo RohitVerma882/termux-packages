@@ -37,7 +37,7 @@ termux_step_configure() {
 	./Configure "$TERMUX_OPENSSL_PLATFORM" \
 		--prefix="$TERMUX_PREFIX" \
 		--openssldir="$TERMUX_PREFIX/etc/tls" \
-		shared \
+		no-shared \
 		zlib-dynamic \
 		no-ssl \
 		no-hw \

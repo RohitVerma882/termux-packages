@@ -71,11 +71,21 @@ CFLAGS := -DNO_PERSISTENTLY_STORED_PATTERNS \
           -I src \
           -I $(LIBSEPOL_BASE)/include
 
-LIBSELINUX := src/libandroid-selinux.so
+LIBSELINUX := src/libandroid-selinux.a
 LIBSEPOL := $(LIBSEPOL_BASE)/src/libsepol.a
+LIBPCRE2 := $(LIBDIR)/libpcre2-32.a
+LIBPCRE3 := $(LIBDIR)/libpcre2-16.a
+LIBPCRE4 := $(LIBDIR)/libpcre2-8.a
+LIBPCRE := $(LIBDIR)/libpcre2-posix.a
 
-$(LIBSELINUX): $(OBJS) $(LIBSEPOL)
-	$(CC) -o $@ $^ -shared -lpcre2-8 -llog $(LDFLAGS)
+$(LIBSELINUX): $(OBJS) $(LIBSEPOL) $(LIBPCRE2) $(LIBPCRE3) $(LIBPCRE4) $(LIBPCRE)
+	$(AR) x $(LIBSEPOL)
+	$(AR) x $(LIBPCRE2)
+	$(AR) x $(LIBPCRE3)
+	$(AR) x $(LIBPCRE4)
+	$(AR) x $(LIBPCRE)
+	$(AR) rcs $@ $(OBJS) *.o
+	@rm -f *.o
 
 $(LIBSEPOL):
 	$(MAKE) -C $(LIBSEPOL_BASE)/src libsepol.a

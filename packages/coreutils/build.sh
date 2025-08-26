@@ -24,7 +24,7 @@ gl_cv_host_operating_system=Android
 ac_cv_func_getpass=yes
 --disable-xattr
 --with-packager=Termux
---enable-no-install-program=pinky,df,users,who,uptime
+--enable-no-install-program=pinky,df,users,who,uptime,stdbuf
 --enable-single-binary=symlinks
 --with-gmp
 "
