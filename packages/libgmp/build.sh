@@ -9,7 +9,7 @@ TERMUX_PKG_SHA256=a3c2b80201b89e68616f4ad30bc66aee4927c3ce50e33929ca819d5c435388
 TERMUX_PKG_DEPENDS="libc++"
 TERMUX_PKG_BREAKS="libgmp-dev"
 TERMUX_PKG_REPLACES="libgmp-dev"
-TERMUX_PKG_EXTRA_CONFIGURE_ARGS="--enable-cxx --disable-shared"
+TERMUX_PKG_EXTRA_CONFIGURE_ARGS="--enable-cxx --disable-shared --with-pic"
 
 termux_step_pre_configure() {
 	CFLAGS+=" -fPIC"
