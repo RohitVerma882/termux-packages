@@ -10,7 +10,7 @@ TERMUX_PKG_REVISION=65
 TERMUX_PKG_SRCURL=https://github.com/termux/proot/archive/${_COMMIT}.zip
 TERMUX_PKG_SHA256=e6942f8b94fb3840faa3a500295dd4d79147266f60404df7c026703436850737
 TERMUX_PKG_AUTO_UPDATE=false
-TERMUX_PKG_DEPENDS="libtalloc"
+TERMUX_PKG_DEPENDS="libtalloc-static"
 TERMUX_PKG_SUGGESTS="proot-distro"
 TERMUX_PKG_BUILD_IN_SRC=true
 TERMUX_PKG_EXTRA_MAKE_ARGS="-C src"
@@ -19,7 +19,10 @@ TERMUX_PKG_EXTRA_MAKE_ARGS="-C src"
 export PROOT_UNBUNDLE_LOADER=$TERMUX_PREFIX/libexec/proot
 
 termux_step_pre_configure() {
-	CPPFLAGS+=" -DARG_MAX=131072"
+	LDFLAGS+=" -Wl,-Bstatic -ltalloc -Wl,-Bdynamic"
+	LDFLAGS+=" -ffunction-sections -fdata-sections -Wl,--gc-sections"
+	CFLAGS+=" -DWITH_LOADER=0"
+	CPPFLAGS+=" -DARG_MAX=131072 -DWITH_LOADER=0"
 }
 
 termux_step_post_make_install() {
