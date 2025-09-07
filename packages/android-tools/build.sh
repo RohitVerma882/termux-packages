@@ -20,4 +20,7 @@ termux_step_pre_configure() {
 	termux_setup_golang
 
 	LDFLAGS+=" $($TERMUX_SCRIPTDIR/packages/libprotobuf/interface_link_libraries.sh)"
+
+	LDFLAGS+=" -static-libstdc++"
+	LDFLAGS+=" -Wl,-Bstatic -lz -Wl,-Bdynamic"
 }
