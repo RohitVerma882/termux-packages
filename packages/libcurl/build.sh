@@ -13,7 +13,6 @@ TERMUX_PKG_REPLACES="libcurl-dev"
 TERMUX_PKG_ESSENTIAL=true
 
 TERMUX_PKG_EXTRA_CONFIGURE_ARGS="
---enable-ntlm-wb=$TERMUX_PREFIX/bin/ntlm_auth
 --with-ca-bundle=$TERMUX_PREFIX/etc/tls/cert.pem
 --with-ca-path=$TERMUX_PREFIX/etc/tls/certs
 --with-nghttp2
@@ -21,6 +20,7 @@ TERMUX_PKG_EXTRA_CONFIGURE_ARGS="
 --without-libidn2
 --without-librtmp
 --without-brotli
+--without-zstd
 --without-libpsl
 --with-libssh2
 --with-ssl
@@ -28,6 +28,9 @@ TERMUX_PKG_EXTRA_CONFIGURE_ARGS="
 --with-openssl-quic
 --with-nghttp3
 --disable-ares
+--enable-static
+--disable-shared
+--enable-static-libcurl
 "
 
 # https://github.com/termux/termux-packages/issues/15889

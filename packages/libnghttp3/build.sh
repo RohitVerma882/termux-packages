@@ -7,7 +7,7 @@ TERMUX_PKG_SRCURL=https://github.com/ngtcp2/nghttp3/releases/download/v${TERMUX_
 TERMUX_PKG_SHA256=27d084518f06d78279b050cc9cdff2418f80fb753da019427ce853cec920f33f
 TERMUX_PKG_AUTO_UPDATE=true
 TERMUX_PKG_ESSENTIAL=true
-TERMUX_PKG_EXTRA_CONFIGURE_ARGS="--enable-lib-only"
+TERMUX_PKG_EXTRA_CONFIGURE_ARGS="--enable-lib-only --enable-static --disable-shared"
 
 termux_step_post_get_source() {
 	# Do not forget to bump revision of reverse dependencies and rebuild them

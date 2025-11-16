@@ -8,3 +8,4 @@ TERMUX_PKG_SHA256=d9ec76cbe34db98eec3539fe2c899d26b0c837cb3eb466a56b0f109cabf658
 TERMUX_PKG_DEPENDS="openssl, zlib"
 TERMUX_PKG_BREAKS="libssh2-dev"
 TERMUX_PKG_REPLACES="libssh2-dev"
+TERMUX_PKG_EXTRA_CONFIGURE_ARGS="--enable-static --disable-shared"

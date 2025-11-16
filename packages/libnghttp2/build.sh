@@ -8,7 +8,7 @@ TERMUX_PKG_SHA256=00ba1bdf0ba2c74b2a4fe6c8b1069dc9d82f82608af24442d430df97c6f9e6
 TERMUX_PKG_AUTO_UPDATE=true
 TERMUX_PKG_BREAKS="libnghttp2-dev"
 TERMUX_PKG_REPLACES="libnghttp2-dev"
-TERMUX_PKG_EXTRA_CONFIGURE_ARGS="--enable-lib-only"
+TERMUX_PKG_EXTRA_CONFIGURE_ARGS="--enable-lib-only --enable-static --disable-shared"
 # The tools are not built due to --enable-lib-only:
 TERMUX_PKG_RM_AFTER_INSTALL="share/man/man1 share/nghttp2/fetch-ocsp-response"
 
